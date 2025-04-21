@@ -136,10 +136,3 @@ This helps keep the `main` branch always up to date with the latest solved probl
   - Pushes the updated `main` branch
 
 This automation is especially useful for keeping the project organized and up to date while working on daily coding challenges.
-
-## 🔍 LeetCode Challenges
-
-### [Count Good Triplets](https://leetcode.com/problems/count-good-triplets/)
-- **Problem**: Given an array of integers, find the number of "good" triplets where the condition for being a good triplet is defined by the problem.
-- **Approach**: I used a two-pointer technique to count the triplets efficiently.
-- **Solution File**: `leetcode/daily/2025-04-01-count-good-triplets.js`
