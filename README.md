@@ -10,7 +10,6 @@
 - [Goal](#-goal)
 - [Create Exercise File Script](#-create-exercise-file-script)
 - [Folder Structure](#-folder-structure)
-- [Português](#-práticas-de-código)
 
 ---
 
