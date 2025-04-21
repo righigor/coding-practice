@@ -78,7 +78,13 @@ coding-practice/
 
 ### Overview
 
-This repository includes a script to automatically generate a new exercise file for solving the **daily questions** from **LeetCode**. The script allows you to specify the exercise name and its extension (JavaScript, Python, C or Java), and it creates a new file in the appropriate directory for the day's challenge.
+This repository includes a script that automates the creation and organization of daily **LeetCode** challenge files. When executed, it:
+
+- Creates a new file with the current date and formatted exercise name in the `leetcode/daily/` directory.
+- Automatically updates the `leetcode/daily/readme.md` file with the challenge title, a placeholder description, the approach, and a link to the solution file.
+- Updates with the total number of solved challenges and a direct badge counter.
+
+Currently supported languages: **JavaScript**, **Python**, **C**, and **Java**.
 
 ### How to Use
 
@@ -95,9 +101,17 @@ This repository includes a script to automatically generate a new exercise file 
     node create-daily-leet.js count-good-triplets js
     ```
 
-    This command will create a file called `count-good-triplets.js` inside the appropriate directory (`leetcode/daily/`).
+    This command will create:
+      -  a file called `count-good-triplets.js` inside the appropriate directory (`leetcode/daily/`);
+      - An entry in leetcode/daily/readme.md with the problem title and metadata;
+      - A badge in the `leetcode/daily/readme.md` file that counts the total number of solved problems.
 
 3. After running the command, the file will be created, but it might not show up immediately in the VSCode file explorer.
+
+### 📌 Notes
+
+- Ensure Node.js is installed on your system to run the script;
+- If you rename or delete files manually, remember to update the readme.md files accordingly or re-run the script to regenerate them.
 
 ### Troubleshooting (If the file doesn't appear in VSCode)
 
