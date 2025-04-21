@@ -18,10 +18,12 @@ jobs:
           git config user.name "github-actions"
           git config user.email "github-actions@github.com"
 
-      - name: Checkout main branch
-        run: git checkout main
-
-      - name: Merge daily-leetcode to main
+      - name: Checkout default branch
         run: |
-          git merge --no-ff daily-leetcode  # Mescla a branch daily-leetcode na main
-          git push origin main  # Envia as mudanças para o GitHub
+          git fetch origin
+          git checkout $(git rev-parse --abbrev-ref origin/HEAD | sed 's@^origin/@@')
+  
+      - name: Merge daily-leetcode to default branch
+        run: |
+          git merge --no-ff daily-leetcode
+          git push origin $(git rev-parse --abbrev-ref HEAD)
