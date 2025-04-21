@@ -12,18 +12,21 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
+        with:
+          fetch-depth: 0  # Garante que todas as branches sejam buscadas
+
+      - name: List branches
+        run: git branch -r  # Lista as branches remotas para depuração
 
       - name: Set Git user
         run: |
           git config user.name "github-actions"
           git config user.email "github-actions@github.com"
 
-      - name: Checkout default branch
-        run: |
-          git fetch origin
-          git checkout $(git rev-parse --abbrev-ref origin/HEAD | sed 's@^origin/@@')
-  
-      - name: Merge daily-leetcode to default branch
+      - name: Checkout main branch
+        run: git checkout main
+
+      - name: Merge daily-leetcode to main
         run: |
           git merge --no-ff daily-leetcode
-          git push origin $(git rev-parse --abbrev-ref HEAD)
+          git push origin main
