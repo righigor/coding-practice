@@ -1,0 +1,27 @@
+name: Auto Merge Daily to Main
+
+on:
+  push:
+    branches:
+      - 'daily-leetcode'
+
+jobs:
+  merge:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Set Git user
+        run: |
+          git config user.name "github-actions"
+          git config user.email "github-actions@github.com"
+
+      - name: Checkout main branch
+        run: git checkout main
+
+      - name: Merge daily-leetcode to main
+        run: |
+          git merge --no-ff daily-leetcode  # Mescla a branch daily-leetcode na main
+          git push origin main  # Envia as mudanças para o GitHub
