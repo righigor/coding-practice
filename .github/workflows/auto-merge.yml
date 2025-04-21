@@ -1,4 +1,4 @@
-name: Auto Merge Daily to Main
+name: Auto Merge Daily Leetcode branch to Main
 
 on:
   push:
