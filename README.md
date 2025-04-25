@@ -4,12 +4,18 @@
 [![Codewars](https://img.shields.io/badge/Codewars-kata-red)](https://www.codewars.com/)
 [![GitHub repo size](https://img.shields.io/github/repo-size/righigor/coding-practice?color=blue)](https://github.com/righigor/coding-practice)
 [![Last Commit](https://img.shields.io/github/last-commit/righigor/coding-practice)](https://github.com/righigor/coding-practice)
+![Auto Merge Daily](https://github.com/righigor/coding-practice/actions/workflows/auto-merge.yml/badge.svg)
+[![Top Language](https://img.shields.io/github/languages/top/righigor/coding-practice?color=informational)](https://github.com/righigor/coding-practice)
+
 
 ## 📚 Table of Contents
 - [About](#-about)
 - [Goal](#-goal)
-- [Create Exercise File Script](#-create-exercise-file-script)
 - [Folder Structure](#-folder-structure)
+- [Practice Stats](#-practice-stats)
+- [Create Exercise File Script](#-create-exercise-file-script)
+- [Automation](#-automation)
+  - [Workflow Details](#-workflow-details)
 
 ---
 
@@ -32,11 +38,53 @@ Each solution is implemented with clarity and often contains comments explaining
 
 ---
 
+## 📁 Folder Structure
+
+```bash
+coding-practice/
+├── .github/
+│   └── workflows/
+│       └── auto-merge.yml
+├── leetcode/
+│   └── daily/
+│       └── 2025-04-21-name-of-question.js
+├── codewars/
+│   ├── 8kyu/
+│   └── 6kyu/
+├── create-daily-leet.js
+└── README.md
+```
+
+- `leetcode/daily/`: Contains daily LeetCode challenges.  
+  Files are named using the format `YYYY-MM-DD-question-title.js` for better organization and readability.
+
+- `codewars/`: Contains Codewars challenges, organized by difficulty level (8kyu, 6kyu, etc.).
+
+- `README.md`: This file, providing an overview of the repository and instructions for use.
+
+- `create-daily-leet.js`: Script to create new exercise files automatically.
+
+---
+
+## 🧠 Practice Stats
+
+| LeetCode | Codewars |
+|----------|----------|
+| ![LeetCode Stats](https://leetcard.jacoblin.cool/righigor?theme=dark&font=Source%20Code%20Pro&extension=activity&borderRadius=10px&height=200) | ![Codewars Stats](https://www.codewars.com/users/righigor/badges/large) |
+
+---
+
 ## 💻 Create Exercise File Script
 
 ### Overview
 
-This repository includes a script to automatically generate a new exercise file for solving the **daily questions** from **LeetCode**. The script allows you to specify the exercise name and its extension (JavaScript, Python, C or Java), and it creates a new file in the appropriate directory for the day's challenge.
+This repository includes a script that automates the creation and organization of daily **LeetCode** challenge files. When executed, it:
+
+- Creates a new file with the current date and formatted exercise name in the `leetcode/daily/` directory.
+- Automatically updates the `leetcode/daily/readme.md` file with the challenge title, a placeholder description, the approach, and a link to the solution file.
+- Updates with the total number of solved challenges and a direct badge counter.
+
+Currently supported languages: **JavaScript**, **Python**, **C**, and **Java**.
 
 ### How to Use
 
@@ -53,9 +101,17 @@ This repository includes a script to automatically generate a new exercise file 
     node create-daily-leet.js count-good-triplets js
     ```
 
-    This command will create a file called `count-good-triplets.js` inside the appropriate directory (`leetcode/daily/`).
+    This command will create:
+      -  a file called `count-good-triplets.js` inside the appropriate directory (`leetcode/daily/`);
+      - An entry in leetcode/daily/readme.md with the problem title and metadata;
+      - A badge in the `leetcode/daily/readme.md` file that counts the total number of solved problems.
 
 3. After running the command, the file will be created, but it might not show up immediately in the VSCode file explorer.
+
+### 📌 Notes
+
+- Ensure Node.js is installed on your system to run the script;
+- If you rename or delete files manually, remember to update the readme.md files accordingly or re-run the script to regenerate them.
 
 ### Troubleshooting (If the file doesn't appear in VSCode)
 
@@ -77,25 +133,20 @@ If the file exists but doesn't show up in VSCode, refreshing or restarting VSCod
 
 ---
 
-## 📁 Folder Structure
+## 🔁 Automation
 
-```bash
-coding-practice/
-├── leetcode/
-│   └── daily/
-│       └── 2025-04-21-name-of-question.js
-├── codewars/
-│   ├── 8kyu/
-│   └── 6kyu/
-└── README.md
+This repository uses a GitHub Actions workflow to automatically merge the `daily-leetcode` branch into the `main` branch on every push to `daily-leetcode`.
 
-```
+This helps keep the `main` branch always up to date with the latest solved problems without requiring manual pull requests.
 
-- `leetcode/daily/`: Contains daily LeetCode challenges.  
-  Files are named using the format `YYYY-MM-DD-question-title.js` for better organization and readability.
+### 🛠 Workflow Details
 
-- `codewars/`: Contains Codewars challenges, organized by difficulty level (8kyu, 6kyu, etc.).
+- **Workflow file**: [`auto-merge-daily.yml`](.github/workflows/auto-merge-daily.yml)
+- **Trigger**: Push events on the `daily-leetcode` branch
+- **Action**: 
+  - Checks out the repository  
+  - Switches to the default branch (`main`)  
+  - Merges changes from `daily-leetcode`  
+  - Pushes the updated `main` branch
 
-- `README.md`: This file, providing an overview of the repository and instructions for use.
-
-- `create-daily-leet.js`: Script to create new exercise files automatically.
+This automation is especially useful for keeping the project organized and up to date while working on daily coding challenges.

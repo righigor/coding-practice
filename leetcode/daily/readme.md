@@ -1,7 +1,9 @@
 ## 🔍 Daily LeetCode Challenges
 
+
 ![Challenges Solved](https://img.shields.io/badge/Challenges%20Solved-2-blue)
 ![Last Update](https://img.shields.io/badge/Last_Update-2025--04--25-success)
+
 
 🧠 This folder contains **daily LeetCode challenges** I'm solving to improve my problem-solving and algorithmic thinking.  
 Each day I tackle a new problem and document my approach and solution.
