@@ -18,7 +18,13 @@ Decrement the values at the selected indices by 1.
 A Zero Array is an array where all elements are equal to 0.
 Return true if it is possible to transform nums into a Zero Array after processing all the queries sequentially, otherwise return false.
 
-- **Approach**: Brief explanation of the approach used to solve the problem.
+- **Approach**: The naive solution iterates over every range in queries and decrements each value directly, resulting in a time complexity of O(n * q), which leads to a Time Limit Exceeded (TLE) for large inputs.
+To optimize this, the difference array (prefix sum trick) is used to simulate range updates efficiently:
+We maintain a diff array that marks the start and end of each decrement operation.
+Instead of updating nums during each query, we accumulate these changes and apply them in a single pass.
+This reduces the time complexity to O(n + q).
+After applying the cumulative effect of all operations, we check if all values in nums are zero or less (clamped at zero). If any value remains positive, the transformation is impossible.
+
 - **Solution File**: `daily/2025-05-20-zero-array-transformation-i.js`
 
 
