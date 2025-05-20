@@ -1,8 +1,8 @@
 ## 🔍 Daily LeetCode Challenges
 
 
-![Challenges Solved](https://img.shields.io/badge/Challenges%20Solved-3-blue)
-![Last Update](https://img.shields.io/badge/Last_Update-2025--05--19-success)
+![Challenges Solved](https://img.shields.io/badge/Challenges%20Solved-4-blue)
+![Last Update](https://img.shields.io/badge/Last_Update-2025--05--20-success)
 
 
 🧠 This folder contains **daily LeetCode challenges** I'm solving to improve my problem-solving and algorithmic thinking.  
@@ -10,6 +10,18 @@ Each day I tackle a new problem and document my approach and solution.
 
 ### Challenge List
 <!-- NEW_CHALLENGES_HERE -->
+### [Zero Array Transformation I](https://leetcode.com/problems/zero-array-transformation-i/)
+- **Problem**: You are given an integer array nums of length n and a 2D array queries, where queries[i] = [li, ri].
+For each queries[i]:
+Select a subset of indices within the range [li, ri] in nums.
+Decrement the values at the selected indices by 1.
+A Zero Array is an array where all elements are equal to 0.
+Return true if it is possible to transform nums into a Zero Array after processing all the queries sequentially, otherwise return false.
+
+- **Approach**: Brief explanation of the approach used to solve the problem.
+- **Solution File**: `daily/2025-05-20-zero-array-transformation-i.js`
+
+
 ### [Type of Triangle](https://leetcode.com/problems/type-of-triangle/)
 - **Problem**: You are given a 0-indexed integer array nums of size 3 which can form the sides of a triangle.
   - A triangle is called equilateral if it has all sides of equal length.
