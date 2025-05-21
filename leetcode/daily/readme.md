@@ -1,8 +1,8 @@
 ## 🔍 Daily LeetCode Challenges
 
 
-![Challenges Solved](https://img.shields.io/badge/Challenges%20Solved-4-blue)
-![Last Update](https://img.shields.io/badge/Last_Update-2025--05--20-success)
+![Challenges Solved](https://img.shields.io/badge/Challenges%20Solved-5-blue)
+![Last Update](https://img.shields.io/badge/Last_Update-2025--05--21-success)
 
 
 🧠 This folder contains **daily LeetCode challenges** I'm solving to improve my problem-solving and algorithmic thinking.  
@@ -10,6 +10,15 @@ Each day I tackle a new problem and document my approach and solution.
 
 ### Challenge List
 <!-- NEW_CHALLENGES_HERE -->
+### [Set Matrix Zeroes](https://leetcode.com/problems/set-matrix-zeroes/)
+- **Problem**: Given an m x n integer matrix matrix, if an element is 0, set its entire row and column to 0's.
+
+- **Approach**: To avoid modifying the matrix while scanning, we first record all original zero positions in a separate auxiliary matrix. Then, in a second pass, we zero out the corresponding rows and columns in the original matrix based on those marks.
+This approach ensures correctness at the cost of O(m * n) extra space.
+
+- **Solution File**: `daily/2025-05-21-set-matrix-zeroes.c`
+
+
 ### [Zero Array Transformation I](https://leetcode.com/problems/zero-array-transformation-i/)
 - **Problem**: You are given an integer array nums of length n and a 2D array queries, where queries[i] = [li, ri].
 For each queries[i]:
